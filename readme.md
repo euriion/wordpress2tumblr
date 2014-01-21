@@ -2,39 +2,48 @@
 
 A script set to upload wordpress content xml into tumblr.
 
-- you don't need to use email address and password but this script need a set oauth keys and tokens.
-you can get the key and tokens from Tumblr registration of application
+- You don't need to use email address and password but this script need a set oauth keys and tokens.
+- You can get the key and tokens from Tumblr registration of application.
 
-## Registration Application
+## How to use
 
-> you need to register a dummy application to get oauth key at the below page
-> it's not for making application, it's just to have oauth key and tokens
+### Getting Oauth key and tokens from Tumblr
+you need to register a dummy application. It's not for making application, it's just to have keys and tokens.
 
-1. go to the below page. and register an application
+1. go to the below page. and register a dummy application
 
-http://www.tumblr.com/oauth/apps
+	[http://www.tumblr.com/oauth/apps](http://www.tumblr.com/oauth/apps)
 
 2. you can find a link 'Explore API' under your dummy application name. click the link.
 
 3. after that, you will be reached the below page with 'Show Keys' buttion right upper place on the page. click the button.
 
-https://api.tumblr.com/console//calls/user/info
+	[https://api.tumblr.com/console//calls/user/info](https://api.tumblr.com/console//calls/user/info)
 
 4. finally, you can get 5 keys and tokens from a small window as like below.
-
-Consumer Key xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	<pre><code>Consumer Key xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Consumer Secret yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
 Token xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 Token Secret xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 API Key xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+</code></pre>
 
-5. copy the keys and tokens. and rewrite it into wordpress2tumblr.conf file as follow conf format.
+5. Copy the keys and tokens. and then, paste it into wordpress2tumblr.conf file.
+6. Warning! don't deploy or give this keys other people.
 
-6. don't deploy or give this keys other people.
+### Download Wordpress content XML file
+
+1. Go to the admin page of your Wordpress
+2. Download the XML file using Tool menu in the admin page
+
+### Run script
+
+<pre><code>wordpress2tumblr.py -c upload my-config.conf wordpress-xml-file
+</code></pre>
+
 
 ## References
 
 Tumblr API document
 
-- http://www.tumblr.com/docs/en/api/v2#auth
-
+- [http://www.tumblr.com/docs/en/api/v2#auth](http://www.tumblr.com/docs/en/api/v2#auth)
