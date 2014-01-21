@@ -44,13 +44,12 @@ class WordpressToTumblr:
         return (self._tumblr_client.posts(blog_name, id=0, offset=0, limit=999999))
 
     def create_text(self, blog_name, title, body, date, tags):
-        # res = self.client.create_text('euriion', tags=['hello', 'world'], body="asdfsdf")
         res = self._tumblr_client.create_text(blog_name, title=title, body=body, date=date, tags=tags)
         return (res)
 
-    def upload_wordpress_file(self, wordpress_xml_filename):
+    def upload_wordpress_file(self, blog_name, wordpress_xml_filename):
         if not os.path.exists(wordpress_xml_filename):
-            print 'WordPress xml file ' + wordpress_xml_filename + ' not found!'
+            print 'Wordpress xml file ' + wordpress_xml_filename + ' not found!'
             sys.exit(2)
 
         try:
@@ -91,8 +90,7 @@ class WordpressToTumblr:
                                                                                                     'xmlcharrefreplace')
             print "title: %s" % post_title
 
-            # tumblrClient.create_text(blog_name="euriion", title=post_title, body=post_body, date=post_date, tags=[])
-            wordpress_uploader.create_text(blog_name="berrybox-design", title=post_title, body=post_body, date=post_date, tags=[])
+            wordpress_uploader.create_text(blog_name=blog_name, title=post_title, body=post_body, date=post_date, tags=[])
 
             # # deal with WordPress's stupid embedded Unicode characters
             # post = dict([(k,v.encode('utf-8') if type(v) is types.UnicodeType else v) for (k,v) in post.items()])
